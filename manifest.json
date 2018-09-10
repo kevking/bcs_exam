@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "author": "LღF",  // 可选字段，插件作者信息
+  "name": "答案答案快出来",
+  "description": "将隐藏的答案显示出来，并解除鼠标选择、右键操作限制",
+  "version": "1.0.1",
+  "permissions": [
+    "http://training.mis.bcs:8080/front/publicResource/*"
+  ],
+  
+  "icons": {
+      "16": "/images/LOGO2.png"
+  }, // 必要字段，文件格式必须为"icons": {...}，不能为"icons": "icon.png"
+
+  "content_scripts": [{
+      "matches": [
+        "http://training.mis.bcs:8080/front/publicResource/*"
+      ],
+      "js": [
+        "/libs/co.min.js",
+        "/content_scripts/content_script.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }]
+}
